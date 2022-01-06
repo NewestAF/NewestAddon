@@ -1,0 +1,4 @@
+name: NewestAddon
+version: '${version}'
+main: com.newestaf.newestaddon.NewestAddon
+displayName: &bNewestAddon
