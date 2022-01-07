@@ -22,6 +22,8 @@ public final class NewestAddon extends Addon {
 
     }
 
+
+
     @Override
     public void onDisable() {
         // Plugin shutdown logic
