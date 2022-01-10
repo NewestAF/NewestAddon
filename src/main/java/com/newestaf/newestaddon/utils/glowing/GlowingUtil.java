@@ -5,12 +5,14 @@ import com.comphenix.protocol.events.PacketContainer;
 import com.google.common.collect.Maps;
 import com.newestaf.newestaddon.NewestAddon;
 import daybreak.abilitywar.utils.base.minecraft.nms.NMS;
+import net.minecraft.network.protocol.game.PacketPlayOutEntityMetadata;
+import net.minecraft.network.syncher.DataWatcher;
 import org.apache.commons.lang.reflect.FieldUtils;
-import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_17_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 
-import net.minecraft.server.v1_12_R1.*;
+import net.minecraft.server.level.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
@@ -50,7 +52,7 @@ public class GlowingUtil {
 
             PacketPlayOutEntityMetadata metadataPacket = new PacketPlayOutEntityMetadata(glowingPlayer.getEntityId(), newDataWatcher, true);
 
-            ((CraftPlayer) sendPacketPlayer).getHandle().playerConnection.sendPacket(metadataPacket);
+            ((CraftPlayer) sendPacketPlayer).getHandle().b.sendPacket(metadataPacket);
         } catch (IllegalAccessException e) { // Catch statement necessary for FieldUtils.readDeclaredField()
             e.printStackTrace();
         }
